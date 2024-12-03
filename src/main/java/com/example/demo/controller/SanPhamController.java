@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.DanhMuc;
+import com.example.demo.entity.MauSac;
 import com.example.demo.entity.SanPham;
 import com.example.demo.repository.DanhMucRepository;
 import com.example.demo.repository.SanPhamRepository;
@@ -59,6 +60,22 @@ public class SanPhamController {
             this.sanPhamRepository.save(sanPham);
         return "redirect:/san-pham/hien-thi";
     }
+    @PostMapping("update/{id}")
+    public String update(@PathVariable Integer id,
+                         @ModelAttribute("sanPham") SanPham sanPham, Model m){
+        sanPham.setNgaySua(LocalDateTime.now());
+        sanPham.setNgayTao(this.sanPhamRepository.findById(id).get().getNgayTao());
+        m.addAttribute("sanPham", this.sanPhamRepository.findById(id));
+        this.sanPhamRepository.save(sanPham);
+        return "redirect:/san-pham/hien-thi";
+    }
+
+    @GetMapping("/view-update/{id}")
+    public String view(@PathVariable Integer id, Model model){
+        model.addAttribute("sanPham", sanPhamRepository.findById(id).get());
+        return "san-pham-update";
+    }
+
     @GetMapping("/details/{id}")
     public String details(@PathVariable Integer id, Model model){
         model.addAttribute("sanPham", this.sanPhamRepository.findById(id).get());
@@ -71,9 +88,5 @@ public class SanPhamController {
         return "redirect:/san-pham/hien-thi";
     }
 
-    @GetMapping("/view-update/{id}")
-    public String view(@PathVariable Integer id, Model model){
-        model.addAttribute("sanPham", sanPhamRepository.findById(id).get());
-        return "san-pham-update";
-    }
+
 }

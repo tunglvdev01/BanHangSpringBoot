@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -58,11 +59,25 @@
     Hoat dong
     <input type="radio" name="trangThai" value="khong hoat dong" ${sanPham.trangThai == "khong hoat dong" ? "checked" : ""} >
     Khong hoat dong <br> <br>
+    Danh Muc:
+    <select name="danhMuc" >
+        <option value=""></option>
+        <c:forEach items="${listDanhMuc}" var="ld">
+            <option value="${ld.id}" ${sanPham.danhMuc.id == ld.id ? "selected" : ""}>${ld.tenDanhMuc}</option>
+        </c:forEach>
+    </select>
     <%--        Ngay Tao:--%>
     <%--        <input name="ngayTao" value="${size.ngayTao}" type="date">--%>
     <%--        <br> <br>--%>
     <%--        Ngay Sua:--%>
     <%--        <input name="ngaySua" value="${size.ngaySua}" type="date">--%>
+<%--    Danh Muc:--%>
+<%--    <select name="danhMuc">--%>
+<%--        <c:forEach items="${listDanhMuc}" var="ld">--%>
+
+<%--            <option value="${ld.id}" ${ld.id == sanPham.danhMuc.id ? 'selected' : ''}>${ld.tenDanhMuc}</option>--%>
+<%--        </c:forEach>--%>
+<%--    </select>--%>
     <br> <br>
 
 

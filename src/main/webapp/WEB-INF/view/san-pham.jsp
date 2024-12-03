@@ -89,15 +89,15 @@ integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIe
     Ten san pham:
     <input name="tenSanPham" value="${sanPham.tenSanPham}"> <br> <br>
     Trang thai:
-    <input type="radio" name="trangThai" value="Hoat Dong" ${sanPham.trangThai == "Hoat Dong" ? "checked" : ""} >
+    <input type="radio" name="trangThai" value="hoat dong" ${sanPham.trangThai == "hoat dong" ? "checked" : ""} >
     Hoat dong
-    <input type="radio" name="trangThai" value="Khong Hoat Dong" ${sanPham.trangThai == "Khong Hoat Dong" ? "checked" : ""} >
+    <input type="radio" name="trangThai" value="khong hoat dong" ${sanPham.trangThai == "khong hoat dong" ? "checked" : ""} >
     Khong hoat dong <br> <br>
     Danh Muc:
-    <select name="danhMuc">
+    <select name="danhMuc" >
+        <option value=""></option>
         <c:forEach items="${listDanhMuc}" var="ld">
-            <option value=""></option>
-            <option value="${ld.id}">${ld.tenDanhMuc}</option>
+            <option value="${ld.id}" ${sanPham.danhMuc.id == ld.id ? "selected" : ""}>${ld.tenDanhMuc}</option>
         </c:forEach>
     </select>
     <br> <br>
