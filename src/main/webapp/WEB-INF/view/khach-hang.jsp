@@ -71,6 +71,7 @@
 </form>
 <table class="table">
     <tr>
+        <th>Id</th>
         <th>Ho Ten</th>
         <th>Dia Chi</th>
         <th>SDT</th>
@@ -84,6 +85,7 @@
     <tr>
         <c:forEach var="kh" items="${listKhachHang}">
     <tr>
+        <td>${kh.id}</td>
        <td>${kh.hoTen}</td>
        <td>${kh.diaChi}</td>
        <td>${kh.sdt}</td>

@@ -47,6 +47,6 @@
         </div>
     </div>
 </nav>
-<footer style="text-align: center"><h1>tunglv-PH46848</h1></footer>
+
 </body>
 </html>

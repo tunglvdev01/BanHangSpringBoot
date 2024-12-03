@@ -47,5 +47,30 @@
         </div>
     </div>
 </nav>
+<h1> Chi tiet san pham update</h1>
+<form action="/hoa-don/update/${hoaDon.id}" method="post">
+    Id San Pham:
+    <select name="khachHang">
+        <option value=""></option>
+        <c:forEach items="${listKhachHang}" var="kh">
+            <option value="${kh.id}" ${hoaDon.khachHang.id == kh.id ? "selected" : ""}>${kh.hoTen}</option>
+        </c:forEach>
+    </select>
+
+    <br> <br>
+    Gia Ban:
+    <input name="diaChi" value="${hoaDon.diaChi}" > <br> <br>
+    So Luong Ton:
+    <input name="soDienThoai" value="${hoaDon.soDienThoai}"> <br> <br>
+    Trang thai:
+    <input type="radio" name="trangThai" value="hoat dong" ${hoaDon.trangThai == "hoat dong" ? "checked" : ""} >
+    Hoat dong
+    <input type="radio" name="trangThai" value="khong hoat dong" ${hoaDon.trangThai == "khong hoat dong" ? "checked" : ""} >
+    Khong hoat dong <br> <br>
+
+
+
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
 </body>
 </html>

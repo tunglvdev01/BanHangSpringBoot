@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -48,42 +49,29 @@
     </div>
 </nav>
 <h1>Hoa Don Update</h1>
-<form:form action="/hoa-don/update/${hoaDon.id}"  modelAttribute="hoaDon" method="post">
-    Id Hoa Don:
-<%--    <form:select path="khachHang" class="form-select">--%>
-<%--        <option value=""></option>--%>
-<%--        <form:options items="${listKhachHang}" itemValue="id" itemLabel="id"/>--%>
-<%--    </form:select>--%>
+<form action="/hoa-don/update/${hoaDon.id}" method="post">
+    Id Khach Hang:
+    <select name="khachHang">
+        <option value=""></option>
+        <c:forEach items="${listKhachHang}" var="kh">
+            <option value="${kh.id}" ${hoaDon.khachHang.id == kh.id ? "selected" : ""}>${kh.hoTen}</option>
+        </c:forEach>
+    </select>
 
-
-<%--    <form:select path="khachHang" >--%>
-<%--        <option value=""></option>--%>
-<%--        <form:options items="${listKhachHang}" itemValue="id" itemLabel="id"/>--%>
-<%--    </form:select>--%>
-    <input value="${hoaDon.id}" type="text"readonly>
-
-<%--    <form:select path="idKhachHang" class="form-select">--%>
-<%--        <option value=""></option>--%>
-<%--        <form:options items="${listKhachHang}" itemValue="id" itemLabel="tenKhachHang"/>--%>
-<%--    </form:select>--%>
     <br> <br>
-
+    Dia Chi:
+    <input name="diaChi" value="${hoaDon.diaChi}" > <br> <br>
+    Sdt:
+    <input name="soDienThoai" value="${hoaDon.soDienThoai}"> <br> <br>
     Trang thai:
     <input type="radio" name="trangThai" value="hoat dong" ${hoaDon.trangThai == "hoat dong" ? "checked" : ""} >
     Hoat dong
     <input type="radio" name="trangThai" value="khong hoat dong" ${hoaDon.trangThai == "khong hoat dong" ? "checked" : ""} >
     Khong hoat dong <br> <br>
-<%--    Ngay Tao:--%>
-<%--    <input name="ngayTao" value="${hoaDon.ngayTao}" type="date">--%>
-<%--    <br> <br>--%>
-<%--    Ngay Sua:--%>
-<%--    <input name="ngaySua" value="${hoaDon.ngaySua}" type="date">--%>
 
-    Dia chi:
-    <input name="diaChi" value="${hoaDon.diaChi}"> <br> <br>
-    sdt:
-    <input name="soDienThoai" value="${hoaDon.soDienThoai}"> <br> <br>
+
+
     <button type="submit" class="btn btn-success">Update</button>
-</form:form>
+</form>
 </body>
 </html>

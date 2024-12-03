@@ -65,6 +65,7 @@
     </form>
     <table class="table">
         <tr>
+            <th>Id</th>
             <th>Ma Mau</th>
             <th>Ten Mau</th>
             <th>Trang Thai</th>
@@ -77,6 +78,7 @@
         <tr>
             <c:forEach var="mau" items="${listMau}">
                 <tr>
+        <td>${mau.id}</td>
          <td>${mau.maMau}</td>
          <td>${mau.tenMau}</td>
          <td>${mau.trangThai}</td>

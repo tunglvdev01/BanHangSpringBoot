@@ -60,7 +60,7 @@
 <%--            <option value="${size.tenSize}">L</option>--%>
 <%--            <option value="${size.tenSize}">XL</option>--%>
 <%--        </select>--%>
-        <br> <br>
+
         Trang thai:
         <input type="radio" name="trangThai" value="hoat dong" ${size.trangThai == "hoat dong" ? "checked" : ""} >
         Hoat dong
@@ -76,6 +76,7 @@
     </form>
     <table class="table">
         <tr>
+            <th>Id</th>
             <th>Ma Size</th>
             <th>Ten Size</th>
             <th>Trang Thai</th>
@@ -88,6 +89,7 @@
         <tr>
             <c:forEach var="size" items="${ListSize}">
                 <tr>
+        <td>${size.id}</td>
             <td>${size.maSize}</td>
             <td>${size.tenSize}</td>
             <td>${size.trangThai}</td>

@@ -66,4 +66,13 @@ public class ChiTietSanPhamController {
         this.chiTietSanPhamRepository.save(ctsp);
         return "redirect:/chi-tiet-san-pham/hien-thi";
     }
+
+
+    @GetMapping("/view-update/{id}")
+    public String viewUpdate(@PathVariable Integer id, Model model){
+        model.addAttribute("ctsp", this.chiTietSanPhamRepository.findById(id).get());
+
+        // model.addAttribute("khachHang", this.khachHangRepository.findAll());
+        return "chi-tiet-san-pham-update";
+    }
 }

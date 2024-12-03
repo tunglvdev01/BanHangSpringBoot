@@ -66,18 +66,7 @@
             <option value="${ld.id}" ${sanPham.danhMuc.id == ld.id ? "selected" : ""}>${ld.tenDanhMuc}</option>
         </c:forEach>
     </select>
-    <%--        Ngay Tao:--%>
-    <%--        <input name="ngayTao" value="${size.ngayTao}" type="date">--%>
-    <%--        <br> <br>--%>
-    <%--        Ngay Sua:--%>
-    <%--        <input name="ngaySua" value="${size.ngaySua}" type="date">--%>
-<%--    Danh Muc:--%>
-<%--    <select name="danhMuc">--%>
-<%--        <c:forEach items="${listDanhMuc}" var="ld">--%>
 
-<%--            <option value="${ld.id}" ${ld.id == sanPham.danhMuc.id ? 'selected' : ''}>${ld.tenDanhMuc}</option>--%>
-<%--        </c:forEach>--%>
-<%--    </select>--%>
     <br> <br>
 
 

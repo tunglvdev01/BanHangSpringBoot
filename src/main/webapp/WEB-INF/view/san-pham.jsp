@@ -51,38 +51,6 @@ integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIe
     </div>
 </nav>
     <h5>Add San Pham</h5>
-<%--        <form:form action="/san-pham/add"  modelAttribute="sanPham" method="post">--%>
-<%--        <label class="form-label">Ma Sp</label>--%>
-<%--        <form:input path="maSanPham" type="text"/>--%>
-<%--&lt;%&ndash;        <form:errors path="maSanPham" element="div" cssClass="text-danger"/>&ndash;%&gt;--%>
-<%--    <br> <br>--%>
-<%--        <label class="form-label">Ten Sp</label>--%>
-<%--        <form:input path="tenSanPham" type="text" />--%>
-<%--&lt;%&ndash;        <form:errors path="tenSanPham" element="div" cssClass="text-danger"/>&ndash;%&gt;--%>
-<%--        <br> <br>--%>
-
-<%--        Trang thai:--%>
-<%--        <input type="radio" value="hoat dong" ${sanPham.trangThai == "hoat dong" ? "checked" : ""}> hoat dong--%>
-<%--        <input type="radio" value="khong hoat dong" ${sanPham.trangThai == "khong hoat dong" ? "checked" : ""}> khong hoat dong--%>
-<%--&lt;%&ndash;        <form:errors path="trangThai" element="div" cssClass="text-danger"/>&ndash;%&gt;--%>
-
-<%--&lt;%&ndash;        <label class="form-label">Ngay tao</label>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <form:input path="ngayTao" type="date" class="form-control"/>&ndash;%&gt;--%>
-<%--&lt;%&ndash;&lt;%&ndash;        <form:errors path="ngayTao" element="div" cssClass="text-danger"/>&ndash;%&gt;&ndash;%&gt;--%>
-
-<%--&lt;%&ndash;        <label class="form-label">Ngay sua</label>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <form:input path="ngaySua" type="date" class="form-control"/>&ndash;%&gt;--%>
-<%--&lt;%&ndash;&lt;%&ndash;        <form:errors path="ngaySua" element="div" cssClass="text-danger"/>&ndash;%&gt;&ndash;%&gt;--%>
-<%--        <br> <br>--%>
-<%--        <label class="form-label">Danh Muc</label>--%>
-<%--        <form:select path="danhMuc" >--%>
-<%--            <option value=""></option>--%>
-<%--            <form:options items="${listDanhMuc}" itemValue="id" itemLabel="tenDanhMuc"/>--%>
-<%--        </form:select>--%>
-<%--&lt;%&ndash;        <form:errors path="danhMuc" element="div" cssClass="text-danger"/>&ndash;%&gt;--%>
-<%--        <br> <br>--%>
-<%--        <button class="btn btn-success" type="submit">Add</button>--%>
-<%--    </form:form>--%>
 <form action="/san-pham/add" method="post">
     Ma san pham:
     <input name="maSanPham" value="${sanPham.maSanPham}"> <br> <br>
@@ -105,6 +73,7 @@ integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIe
 </form>
   <table class="table">
       <tr>
+          <th>Id</th>
           <th>Ma SP</th>
           <th>Ten Sp</th>
           <th>Trang Thai</th>
@@ -118,6 +87,7 @@ integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIe
       <tr>
           <c:forEach var="sp" items="${listSanPham}">
       <tr>
+        <td>${sp.id}</td>
           <td>${sp.maSanPham}</td>
           <td>${sp.tenSanPham}</td>
           <td>${sp.trangThai}</td>

@@ -85,6 +85,7 @@
 </form:form>
 <table class="table">
     <tr>
+        <th>Id HDCT</th>
         <th>Id Hoa Don</th>
         <th>ID Ctsp</th>
         <th>So Luong Mua</th>
@@ -100,6 +101,7 @@
     <tr>
         <c:forEach items="${listHdct}" var="hd" >
             <tr>
+    <td>${hd.id}</td>
         <td>${hd.hoaDon.id}</td>
         <td>${hd.ctsp.id}</td>
         <td>${hd.soLuongMua}</td>

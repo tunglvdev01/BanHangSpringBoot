@@ -58,11 +58,7 @@
     Hoat dong
     <input type="radio" name="trangThai" value="Khong hoat dong" ${danhMuc.trangThai == "Khong hoat dong" ? "checked" : ""} >
     Khong hoat dong <br> <br>
-<%--    Ngay Tao:--%>
-<%--    <input name="ngayTao" value="${danhMuc.ngayTao}" type="date">--%>
-<%--    <br> <br>--%>
-<%--    Ngay Sua:--%>
-<%--    <input name="ngaySua" value="${danhMuc.ngaySua}" type="date">--%>
+
     <br> <br>
     <button type="submit" class="btn btn-success">Update</button>
 </form>

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.HoaDon;
 import com.example.demo.entity.KhachHang;
+import com.example.demo.entity.SanPham;
 import com.example.demo.repository.HoaDonRepository;
 import com.example.demo.repository.KhachHangRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,16 @@ public class HoaDonController {
     }
     @PostMapping("/update")
     String update(@ModelAttribute HoaDon hoaDon){
+        this.hoaDonRepository.save(hoaDon);
+        return "redirect:/hoa-don/hien-thi";
+    }
+
+    @PostMapping("update/{id}")
+    public String update(@PathVariable Integer id,
+                         @ModelAttribute("hoaDon") HoaDon hoaDon, Model m){
+        hoaDon.setNgaySua(LocalDateTime.now());
+        hoaDon.setNgayTao(this.hoaDonRepository.findById(id).get().getNgayTao());
+        m.addAttribute("sanPham", this.hoaDonRepository.findById(id));
         this.hoaDonRepository.save(hoaDon);
         return "redirect:/hoa-don/hien-thi";
     }

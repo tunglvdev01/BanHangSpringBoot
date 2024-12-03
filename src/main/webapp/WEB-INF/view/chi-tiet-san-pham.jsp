@@ -81,6 +81,7 @@
 </form:form>
 <table class="table">
     <tr>
+        <th>ID CTSP</th>
         <th>ID SP</th>
         <th>ID Mau Sac</th>
         <th>ID Size</th>
@@ -96,6 +97,7 @@
     <tr>
         <c:forEach var="sp" items="${listCtsp}">
             <tr>
+        <td>${sp.id}</td>
         <td>${sp.sanPham.id}</td>
         <td>${sp.mauSac.id}</td>
         <td>${sp.size.id}</td>

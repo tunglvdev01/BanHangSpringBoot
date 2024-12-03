@@ -50,18 +50,20 @@
     </div>
 </nav>
 <h1>Hoa Don</h1>
-<form:form action="/hoa-don/add" method="post" modelAttribute="hoaDon">
-    Id Khach Hang:
-    <form:select path="khachHang" >
+<form action="/hoa-don/add" method="post" modelAttribute="hoaDon">
+    Ten Khach Hang:
+    <select name="khachHang">
         <option value=""></option>
-        <form:options items="${listKhachHang}" itemValue="id" itemLabel="id"/>
-    </form:select>
+        <c:forEach items="${listKhachHang}" var="kh">
+            <option value="${kh.id}" ${hoaDon.khachHang.id == kh.id ? "selected" : ""}>${kh.hoTen}</option>
+        </c:forEach>
+    </select>
     <br> <br>
     Trang thai:
     <input type="radio" name="trangThai" value="hoat dong" ${hoaDon.trangThai == "hoat dong" ? "checked" : ""} >
     Hoat dong
     <input type="radio" name="trangThai" value="khong hoat dong" ${hoaDon.trangThai == "khong hoat dong" ? "checked" : ""} >
-    Khong hoat dong <br> <br>
+    Khong hoat dong
 <%--    Ngay Tao:--%>
 <%--    <input name="ngayTao" value="${hoaDon.ngayTao}" type="date">--%>
 <%--    <br> <br>--%>
@@ -73,10 +75,11 @@
     sdt:
     <input name="soDienThoai" value="${hoaDon.soDienThoai}"> <br> <br>
     <button type="submit" class="btn btn-success">Add</button>
-</form:form>
+</form>
 <table class="table">
     <tr>
-        <th>Id Khach Hang</th>
+        <th>ID Hoa Don</th>
+        <th>Ho Ten KH</th>
         <th>Trang Thai</th>
         <th>Ngay Tao</th>
         <th>Ngay Sua</th>
@@ -89,7 +92,8 @@
     <tr>
         <c:forEach var="hd" items="${listHoaDon}">
     <tr>
-        <td>${hd.khachHang.id}</td>
+        <td>${hd.id}</td>
+        <td>${hd.khachHang.hoTen}</td>
         <td>${hd.trangThai}</td>
         <td>${hd.ngayTao}</td>
         <td>${hd.ngaySua}</td>
